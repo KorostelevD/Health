@@ -13,6 +13,7 @@ import java.sql.Date;
 @Entity
 @Table(name = "patients")
 @ToString
+@EqualsAndHashCode
 
 public class Patient {
     public enum Gender{
