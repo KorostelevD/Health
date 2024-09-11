@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @SpringBootTest
@@ -46,11 +47,45 @@ public class PotientRepositoryTests {
     @Order(2)
     public void findById(){
         Optional<Patient> a_container = patientRepository.findById(a.getId());
-        if (a_find.isPresent()) {
-            Assertions.assertEquals(a, a_find.get());
+        if (a_container.isPresent()) {
+            Assertions.assertEquals(a, a_container.get());
         }
         else {
             Assertions.fail();
         }
     }
+
+    @Test
+    @Order(3)
+    public void findAllByCount(){
+        Assertions.assertEquals(2, patientRepository.findAll().size());
+    }
+
+    @Test
+    @Order(4)
+    public void findByCollection(){
+        List<Patient> original = List.of(a, b);
+        List<Patient> saved = patientRepository.findAll();
+        Assertions.assertIterableEquals(original, saved);
+    }
+
+    //@Test
+   // @Order(7)
+    public void deleteAll(){
+        patientRepository.deleteAll();
+        Assertions.assertEquals(0,patientRepository.findAll().size());
+    }
+
+    @Test
+    @Order(6)
+    public void findAllBySurnameAndNameAndPatronymic(){
+        Patient a_saved = patientRepository.save(a);
+        List<Patient> actual = patientRepository.findAllBySurnameAndNameAndPatronymic(
+                a_saved.getSurname(), a_saved.getName(), a_saved.getPatronymic()
+        );
+        System.out.println(actual);
+        Assertions.assertNotEquals(0,actual.size());
+        Assertions.assertEquals(a_saved, actual.getFirst());
+    }
+
 }
