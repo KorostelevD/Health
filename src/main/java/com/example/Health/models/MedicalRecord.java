@@ -24,5 +24,5 @@ public class MedicalRecord {
     @Column(nullable = false)
     private Date recordDate;
     @Column(nullable = false)
-    private String MedicalRecord;
+    private String medicalRecords;
 }

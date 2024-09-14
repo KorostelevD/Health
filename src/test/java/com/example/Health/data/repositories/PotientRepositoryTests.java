@@ -24,7 +24,8 @@ public class PotientRepositoryTests {
     @Autowired
     private PatientRepository patientRepository;
 
-   // @Test
+    @Test
+    @Order(1)
     public void save(){
         //System.out.println(patientRepository);
         Patient a_saved = patientRepository.save(a);
@@ -33,7 +34,7 @@ public class PotientRepositoryTests {
         Assertions.assertEquals(a, a_saved);
     }
     @Test
-    @Order(1)
+    @Order(2)
     public void  saveAll(){
         Patient a_saved = patientRepository.save(a);
         Patient b_saved = patientRepository.save(b);
@@ -44,7 +45,7 @@ public class PotientRepositoryTests {
     }
 
     @Test
-    @Order(2)
+    @Order(3)
     public void findById(){
         Optional<Patient> a_container = patientRepository.findById(a.getId());
         if (a_container.isPresent()) {
@@ -56,21 +57,21 @@ public class PotientRepositoryTests {
     }
 
     @Test
-    @Order(3)
+    @Order(4)
     public void findAllByCount(){
-        Assertions.assertEquals(2, patientRepository.findAll().size());
+        Assertions.assertEquals(    2, patientRepository.findAll().size());
     }
 
     @Test
-    @Order(4)
+    @Order(5)
     public void findByCollection(){
         List<Patient> original = List.of(a, b);
         List<Patient> saved = patientRepository.findAll();
         Assertions.assertIterableEquals(original, saved);
     }
 
-    //@Test
-   // @Order(7)
+   @Test
+    @Order(7)
     public void deleteAll(){
         patientRepository.deleteAll();
         Assertions.assertEquals(0,patientRepository.findAll().size());
@@ -87,5 +88,7 @@ public class PotientRepositoryTests {
         Assertions.assertNotEquals(0,actual.size());
         Assertions.assertEquals(a_saved, actual.getFirst());
     }
+
+
 
 }

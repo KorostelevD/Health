@@ -16,7 +16,6 @@ import lombok.*; //імпорт бібліотеки Lombok, яка автома
 
 
 public class Doctor {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -28,7 +27,4 @@ public class Doctor {
     private String surname;
     @Column(nullable = false)
     private String contact;
-
-
-
 }
