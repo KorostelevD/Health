@@ -1,6 +1,5 @@
 package com.example.Health.data.repositories;
 
-import com.example.Health.models.LabResult;
 import com.example.Health.models.MedicalRecord; //імпортує модель
 //біблиотеки для тестування
 
@@ -79,7 +78,7 @@ public class MedicalRecordRepositoryTests {
         System.out.println(mr2_update);
     }
 
-    // Новий тест: Видалення по ID
+    //  Видалення по ID
     @Test
     @Order(5)
     public void deleteById() {
@@ -90,7 +89,7 @@ public class MedicalRecordRepositoryTests {
     }
 
 
-    // Новий тест: Видалення всіх записів
+    // Видалення всіх записів
     @Test
     @Order(6)
     public void deleteAll() {

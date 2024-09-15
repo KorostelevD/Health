@@ -1,4 +1,7 @@
 package com.example.Health.data.repositories;
 
-public interface PaymentRepository {
+import com.example.Health.models.Payment;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PaymentRepository extends JpaRepository<Payment, Integer> {
 }
