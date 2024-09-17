@@ -10,10 +10,7 @@ public class HealthApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HealthApplication.class, args);
-
 	}
-
-
 	@EventListener(ApplicationReadyEvent.class)
 	public void applicationReady(){
 		System.err.println("Started");

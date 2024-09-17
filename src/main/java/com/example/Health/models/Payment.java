@@ -18,11 +18,18 @@ import java.sql.Date;
 
 
 public class Payment {
+    @NonNull
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NonNull
     @Column(nullable = false)
     private Date recordDate;
+    @NonNull
     @Column(nullable = false)
     private boolean payment;
+
+    //У кожного пацієнта окрема оплата
+    @OneToOne (mappedBy = "payments")
+    private Patient patient;
 }

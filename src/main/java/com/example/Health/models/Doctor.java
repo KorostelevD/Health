@@ -18,18 +18,24 @@ import java.util.List;
 
 
 public class Doctor {
+    @NonNull
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NonNull
     @Column(length = 50, nullable = false)
     private String speciality;
+    @NonNull
     @Column(length = 50, nullable = false)
     private String name;
+    @NonNull
     @Column(length = 50, nullable = false)
     private String surname;
+    @NonNull
     @Column(nullable = false)
     private String contact;
 
+    //Багато до багатьох, багато лікарів, багато пацієнтів
     @ManyToMany (mappedBy = "doctors", fetch = FetchType.LAZY)
     private List<Patient> patients;
 

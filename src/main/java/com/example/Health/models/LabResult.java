@@ -18,14 +18,18 @@ import java.sql.Date;
 
 
 public class LabResult {
+    @NonNull
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NonNull
     @Column(nullable = false)
     private Date resultDate;
+    @NonNull
     @Column(nullable = false)
     private String result;
-    //
+
+    //У кожного пацієнта окремий результат аналізів
     @OneToOne (mappedBy = "labResult")
     private Patient patient;
 

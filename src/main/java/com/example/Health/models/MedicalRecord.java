@@ -18,15 +18,20 @@ import java.sql.Date;
 
 
 public class MedicalRecord {
+    @NonNull
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NonNull
     @Column(nullable = false)
     private Date recordDate;
+    @NonNull
     @Column(nullable = false)
     private String medicalRecords;
 
-    //
+    //У кожного пацієнта окремий медичний запис
+    @OneToOne (mappedBy = "medicalrecords")
+    private Patient patient;
 
 
 }

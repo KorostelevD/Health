@@ -19,14 +19,18 @@ import java.sql.Date;
 
 
 public class Procedure {
+    @NonNull
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NonNull
     @Column(nullable = false)
     private Date proceduresDate;
+    @NonNull
     @Column(nullable = false)
     private String procedures;
-    //
+
+    //Багато різних процедур у одного пацієнта
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patient_id", nullable = false,
             foreignKey = @ForeignKey(name ="FK_procedures_patients" ))
