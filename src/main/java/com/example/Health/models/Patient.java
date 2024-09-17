@@ -71,7 +71,7 @@ public class Patient {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     //У одного пацєнта може бути багато різних процедур
-    @OneToMany(mappedBy = "patients", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
     private List<Procedure> procedures;
 
     @ToString.Exclude

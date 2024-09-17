@@ -32,6 +32,6 @@ public class Payment {
     //У кожного пацієнта окрема оплата
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToOne (mappedBy = "payments")
+    @OneToOne (mappedBy = "payment")
     private Patient patient;
 }

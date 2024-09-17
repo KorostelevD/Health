@@ -32,7 +32,7 @@ public class MedicalRecord {
     //У кожного пацієнта окремий медичний запис
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToOne (mappedBy = "medicalrecords")
+    @OneToOne (mappedBy = "medicalRecord")
     private Patient patient;
 
 
