@@ -25,4 +25,8 @@ public class MedicalRecord {
     private Date recordDate;
     @Column(nullable = false)
     private String medicalRecords;
+
+    //
+
+
 }

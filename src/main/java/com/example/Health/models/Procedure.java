@@ -5,6 +5,7 @@ import lombok.*; //імпорт бібліотеки Lombok, яка автома
 
 import java.sql.Date;
 
+@Data
 @Getter
 @Setter
 @NoArgsConstructor //Генерує конструктор без аргументів. Це означає, що при створенні об'єкта класу можна буде створити його без передавання жодних значень у конструктор.
@@ -25,4 +26,11 @@ public class Procedure {
     private Date proceduresDate;
     @Column(nullable = false)
     private String procedures;
+    //
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "patient_id", nullable = false,
+            foreignKey = @ForeignKey(name ="FK_procedures_patients" ))
+    private Patient patient;
+
+
 }

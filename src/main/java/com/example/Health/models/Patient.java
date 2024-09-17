@@ -4,11 +4,13 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 //
 @Entity
 @Table(name = "patients")
@@ -39,4 +41,19 @@ public class Patient {
     private String phonenumber;
     @Column(nullable = false)
     private String email;
+
+    //
+    @OneToOne (fetch = FetchType.LAZY)
+    private LabResult labResult;
+    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
+    private List<Procedure> procedures;
+    //
+
+    @ManyToMany (fetch = FetchType.LAZY)
+    @JoinTable (
+            name = "patients_doctors",
+            joinColumns = @JoinColumn(name = "patient_id", nullable = false, foreignKey = @ForeignKey (name = "FK_patients")),
+            inverseJoinColumns = @JoinColumn(name = "doctor_id", nullable = false, foreignKey = @ForeignKey (name = "FK_doctors"))
+    )
+    private List<Doctor> doctors;
 }

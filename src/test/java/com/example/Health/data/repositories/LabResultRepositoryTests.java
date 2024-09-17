@@ -18,8 +18,8 @@ import java.util.Optional;
 
 
 public class LabResultRepositoryTests {
-    private static LabResult res1 = new LabResult(0, Date.valueOf(LocalDate.now()),"good anslysis");
-    private static LabResult res2 = new LabResult(0, Date.valueOf(LocalDate.now()),"bed anslysis");
+    private static LabResult res1 = new LabResult(0, Date.valueOf(LocalDate.now()),"good anslysis",null);
+    private static LabResult res2 = new LabResult(0, Date.valueOf(LocalDate.now()),"bed anslysis",null);
 
     @Autowired
     private LabResultRepository labResultRepository;

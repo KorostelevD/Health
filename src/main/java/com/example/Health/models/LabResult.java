@@ -25,4 +25,10 @@ public class LabResult {
     private Date resultDate;
     @Column(nullable = false)
     private String result;
+    //
+    @OneToOne (mappedBy = "labResult")
+    private Patient patient;
+
+
+
 }

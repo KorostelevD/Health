@@ -101,4 +101,7 @@ public class MedicalRecordRepositoryTests {
         Assertions.assertEquals(0, medicalRecordRepository.findAll().size());
 
     }
+
+
+
 }

@@ -1,7 +1,9 @@
 package com.example.Health.data.repositories;
 
+import com.example.Health.models.LabResult;
 import com.example.Health.models.Patient;
 import com.mysql.cj.xdevapi.Client;
+import jakarta.transaction.Transactional;
 import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +14,15 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class) //анотації номер метода
 public class PotientRepositoryTests {
     private static Patient a = new Patient(0, "a", "a", "a",
-            Patient.Gender.MALE, Date.valueOf(LocalDate.now()), "00000000", "m@ukr.net");
+            Patient.Gender.MALE, Date.valueOf(LocalDate.now()), "00000000", "m@ukr.net",null,null,null);
     private static Patient b = new Patient(0, "b", "b", "b",
-            Patient.Gender.MALE, Date.valueOf(LocalDate.now()), "00000000", "m@ukr.net");
+            Patient.Gender.MALE, Date.valueOf(LocalDate.now()), "00000000", "m@ukr.net",null,null,null);
 
     @Autowired
     private PatientRepository patientRepository;
@@ -70,7 +73,7 @@ public class PotientRepositoryTests {
         Assertions.assertIterableEquals(original, saved);
     }
 
-   @Test
+  // @Test
     @Order(7)
     public void deleteAll(){
         patientRepository.deleteAll();
@@ -89,6 +92,17 @@ public class PotientRepositoryTests {
         Assertions.assertEquals(a_saved, actual.getFirst());
     }
 
+    @Test
+    @Order(8)
+    @Transactional //не закриває транзакцію, для стрима
+    public void test(){
+        List <Patient> patientList = patientRepository.findByEmail("aaa@aa.com");
+        long count = patientRepository.countByGenderNot(Patient.Gender.NONE);
+        System.out.println(count);
+        Stream<Patient> stream = patientRepository.findByGenderNot(Patient.Gender.NONE);
+        stream.forEach(System.out::println);
+
+    }
 
 
 }

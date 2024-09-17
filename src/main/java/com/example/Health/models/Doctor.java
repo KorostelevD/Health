@@ -3,6 +3,8 @@ package com.example.Health.models;
 import jakarta.persistence.*;
 import lombok.*; //імпорт бібліотеки Lombok, яка автоматично генерує такі методи, як getter, setter, toString, конструктори тощо, з відповідними анотаціями.
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor //Генерує конструктор без аргументів. Це означає, що при створенні об'єкта класу можна буде створити його без передавання жодних значень у конструктор.
@@ -27,4 +29,8 @@ public class Doctor {
     private String surname;
     @Column(nullable = false)
     private String contact;
+
+    @ManyToMany (mappedBy = "doctors", fetch = FetchType.LAZY)
+    private List<Patient> patients;
+
 }
