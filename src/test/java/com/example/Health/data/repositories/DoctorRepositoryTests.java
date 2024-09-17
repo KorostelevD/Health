@@ -14,7 +14,7 @@ import java.util.Optional;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class) //вказує, що тести будуть виконуватися в порядку, визначеному анотацією @Order
 
 public class DoctorRepositoryTests {
-    private static Doctor doctor1 = new Doctor(0, "therapist", "Oleg", "Petrenko","050 111 11 11",null);
+    private static Doctor doctor1 = new Doctor(0, "therapist", "Oleg", "Petrenko","050 222 00",null)
     private static Doctor doctor2 = new Doctor(0, "surgeon", "Ivan", "Lypko","050 222 22 22",null);
 
     @Autowired

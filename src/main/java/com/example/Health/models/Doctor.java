@@ -36,6 +36,8 @@ public class Doctor {
     private String contact;
 
     //Багато до багатьох, багато лікарів, багато пацієнтів
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToMany (mappedBy = "doctors", fetch = FetchType.LAZY)
     private List<Patient> patients;
 

@@ -31,6 +31,8 @@ public class Procedure {
     private String procedures;
 
     //Багато різних процедур у одного пацієнта
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patient_id", nullable = false,
             foreignKey = @ForeignKey(name ="FK_procedures_patients" ))

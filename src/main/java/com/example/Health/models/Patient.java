@@ -50,22 +50,32 @@ public class Patient {
     @Column(nullable = false)
     private String email;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     //У кожного пацієнта окремий результат аналізів
     @OneToOne (fetch = FetchType.LAZY)
     private LabResult labResult;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     //У кожного пацієнта окремий медичний запис
     @OneToOne (fetch = FetchType.LAZY)
     private MedicalRecord medicalRecord;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     //У кожного пацієнта окрема оплата
     @OneToOne (fetch = FetchType.LAZY)
     private Payment payment;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     //У одного пацєнта може бути багато різних процедур
     @OneToMany(mappedBy = "patients", fetch = FetchType.LAZY)
     private List<Procedure> procedures;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     //Багато до багатьох, багато лікарів, багато пацієнтів
     @ManyToMany (fetch = FetchType.LAZY)
     @JoinTable (

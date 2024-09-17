@@ -30,6 +30,8 @@ public class LabResult {
     private String result;
 
     //У кожного пацієнта окремий результат аналізів
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @OneToOne (mappedBy = "labResult")
     private Patient patient;
 

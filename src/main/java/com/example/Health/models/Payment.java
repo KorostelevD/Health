@@ -30,6 +30,8 @@ public class Payment {
     private boolean payment;
 
     //У кожного пацієнта окрема оплата
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @OneToOne (mappedBy = "payments")
     private Patient patient;
 }
