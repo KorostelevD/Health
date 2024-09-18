@@ -20,7 +20,7 @@ public class PatientServiceDbTests {
             Patient.Gender.MALE, Date.valueOf(LocalDate.now()), "00000000", "m@ukr.net");
 
     @Autowired
-    PatientService patientService;
+    PatientService patientService; //интерфейс сервісу
 
     @Test
     @Order(1)
@@ -34,12 +34,10 @@ public class PatientServiceDbTests {
     @Test
     @Order(2)
     public void findById(){
-        Optional<Patient> optional = patientService.findById(a.getId());
-         optional.ifPresentOrElse(patient -> {
-             Assertions.assertEquals(a,patient);
-         },()->{
-             Assertions.fail("No patient");
-                 }
+         Optional<Patient> optional = patientService.findById(a.getId());
+         optional.ifPresentOrElse(
+                 patient -> Assertions.assertEquals(a,patient),
+         ()-> Assertions.fail("No patient")
          );
     }
 
