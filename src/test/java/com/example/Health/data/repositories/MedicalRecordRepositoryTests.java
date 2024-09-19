@@ -17,8 +17,8 @@ import java.util.Optional;
 
 
 public class MedicalRecordRepositoryTests {
-    private static MedicalRecord mr1 = new MedicalRecord(0, Date.valueOf(LocalDate.now()), "Paracetamol 2 times a day",null);
-    private static MedicalRecord mr2 = new MedicalRecord(0, Date.valueOf(LocalDate.now()), "Aspirin 2 times a day",null);
+    private static MedicalRecord mr1 = new MedicalRecord(0, Date.valueOf(LocalDate.now()), "Paracetamol 2 times a day");
+    private static MedicalRecord mr2 = new MedicalRecord(0, Date.valueOf(LocalDate.now()), "Aspirin 2 times a day");
 
     @Autowired
     private MedicalRecordRepository medicalRecordRepository;

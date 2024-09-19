@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.Optional;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -27,7 +28,17 @@ public class LabresultServiceDbTest {
         LabResult aSaved = labResultService.save(res2);
         res2.setId(aSaved.getId());
         Assertions.assertEquals(res2,aSaved);
+        res2 = aSaved;
+
     }
 
-
+    @Test
+    @Order(2)
+    public void findById() {
+        Optional<LabResult> optional = labResultService.findById(res2.getId());
+        optional.ifPresentOrElse(
+                result -> Assertions.assertEquals(res2, result),
+                () ->Assertions.fail("No Result")
+        );
+    }
 }
