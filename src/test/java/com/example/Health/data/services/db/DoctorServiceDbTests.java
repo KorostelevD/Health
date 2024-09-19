@@ -7,6 +7,8 @@ import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
+
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 
@@ -26,7 +28,13 @@ public class DoctorServiceDbTests {
         doctor1 = aSaved;
     }
 
-
-
-
+    @Test
+    @Order(2)
+    public void findById(){
+        Optional <Doctor> optional = doctorService.findById(doctor1.getId());
+        optional.ifPresentOrElse(doctor ->
+            Assertions.assertEquals(doctor1, doctor),
+        () -> Assertions.fail("No doctor")
+        );
+    }
 }
