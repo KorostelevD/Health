@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.Optional;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -44,6 +45,13 @@ public class ProcedureServiceDbTest {
         procedure1 = aSaved;
     }
 
-
-
+    @Test
+    @Order(2)
+    public void findById(){
+        Optional<Procedure> optional = procedureService.findById(procedure1.getId());
+        optional.ifPresentOrElse(
+                procedure -> Assertions.assertEquals(procedure1, procedure),
+                () -> Assertions.fail("No Procedure")
+        );
+    }
 }
