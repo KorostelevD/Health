@@ -20,9 +20,9 @@ import java.util.stream.Stream;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class) //анотації номер метода
 public class PotientRepositoryTests {
     private static Patient a = new Patient(0, "a", "a", "a",
-            Patient.Gender.MALE, Date.valueOf(LocalDate.now()), "00000000", "m@ukr.net",null,null,null,null,null);
+            Patient.Gender.MALE, Date.valueOf(LocalDate.now()), "00000000", "m@ukr.net");
     private static Patient b = new Patient(0, "b", "b", "b",
-            Patient.Gender.MALE, Date.valueOf(LocalDate.now()), "00000000", "m@ukr.net",null,null,null,null,null);
+            Patient.Gender.MALE, Date.valueOf(LocalDate.now()), "00000000", "m@ukr.net");
 
     @Autowired
     private PatientRepository patientRepository;

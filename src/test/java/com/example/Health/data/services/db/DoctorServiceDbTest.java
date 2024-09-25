@@ -12,7 +12,7 @@ import java.util.Optional;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 
-public class DoctorServiceDbTests {
+public class DoctorServiceDbTest {
     private static Doctor doctor1 = new Doctor(0, "therapist", "Oleg", "Petrenko","050 222 00");
     private static Doctor doctor2 = new Doctor(0, "surgeon", "Ivan", "Lypko","050 222 22 22");
 

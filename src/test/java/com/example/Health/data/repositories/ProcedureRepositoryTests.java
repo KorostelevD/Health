@@ -17,8 +17,8 @@ import java.util.Optional;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class) //вказує, що тести будуть виконуватися в порядку, визначеному анотацією @Order
 
 public class ProcedureRepositoryTests {
-    private static Procedure procedure1 = new Procedure(0, Date.valueOf(LocalDate.now()),"Physiotherapy procedures",null );
-    private static Procedure procedure2 = new Procedure(0, Date.valueOf(LocalDate.now()),"Therapeutic exercise", null );
+    private static Procedure procedure1 = new Procedure(0, Date.valueOf(LocalDate.now()),"Physiotherapy procedures");
+    private static Procedure procedure2 = new Procedure(0, Date.valueOf(LocalDate.now()),"Therapeutic exercise" );
 
     @Autowired
     private ProcedureRepository procedureRepository;

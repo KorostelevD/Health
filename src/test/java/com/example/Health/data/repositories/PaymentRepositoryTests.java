@@ -18,8 +18,8 @@ import java.util.Optional;
 
 
 public class PaymentRepositoryTests {
-    private static Payment pm1 = new Payment(0, Date.valueOf(LocalDate.now()),true, null);
-    private static Payment pm2 = new Payment(0, Date.valueOf(LocalDate.now()),true,null);
+    private static Payment pm1 = new Payment(0, Date.valueOf(LocalDate.now()),true);
+    private static Payment pm2 = new Payment(0, Date.valueOf(LocalDate.now()),true);
 
     @Autowired
     private PaymentRepository paymentRepository;
