@@ -4,6 +4,7 @@ import com.example.Health.data.services.PatientService;
 import com.example.Health.models.Patient;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Date;
@@ -14,12 +15,13 @@ import java.util.Optional;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class PatientServiceDbTests {
 
-    private static Patient a = new Patient(0, "a", "a", "a",
-            Patient.Gender.MALE, Date.valueOf(LocalDate.now()), "00000000", "m@ukr.net");
-    private static Patient b = new Patient(0, "b", "b", "b",
-            Patient.Gender.MALE, Date.valueOf(LocalDate.now()), "00000000", "m@ukr.net");
+    //Генертор!
+    @Autowired
+    Patient a;
 
     @Autowired
+    //@Qualifier(value = "patientServiceDb") // з малої букви об'єкт
+    @Qualifier("patientServiceDb") // з малої букви об'єкт
     PatientService patientService; //интерфейс сервісу
 
     @Test
