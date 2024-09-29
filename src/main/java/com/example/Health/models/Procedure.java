@@ -8,6 +8,7 @@ import java.sql.Date;
 @Data
 @Getter
 @Setter
+
 @NoArgsConstructor //Генерує конструктор без аргументів. Це означає, що при створенні об'єкта класу можна буде створити його без передавання жодних значень у конструктор.
 @AllArgsConstructor //Генерує конструктор, який приймає аргументи для всіх полів класу. Це означає, що при створенні об'єкта класу можна буде передати значення для всіх його атрибутів.
 @RequiredArgsConstructor // не додавати null
@@ -35,7 +36,7 @@ public class Procedure {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "patient_id", nullable = false,
+    @JoinColumn(name = "patient_id", nullable = true,
             foreignKey = @ForeignKey(name ="FK_procedures_patients" ))
     private Patient patient;
 

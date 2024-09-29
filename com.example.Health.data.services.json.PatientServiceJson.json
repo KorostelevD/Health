@@ -1,0 +1,68 @@
+[
+  {
+    "id": 0,
+    "surname": "As1",
+    "name": "An1",
+    "patronymic": "Ap1",
+    "gender": "MALE",
+    "birthDate": "сент. 28, 2024",
+    "phonenumber": "111",
+    "email": "a1@ukr.net",
+    "procedures": [
+      {
+        "id": 1,
+        "proceduresDate": "сент. 28, 2024",
+        "procedures": "Physiotherapy procedures"
+      },
+      {
+        "id": 2,
+        "proceduresDate": "сент. 28, 2024",
+        "procedures": "2Physiotherapy procedures"
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "surname": "As2",
+    "name": "An2",
+    "patronymic": "Ap2",
+    "gender": "MALE",
+    "birthDate": "сент. 28, 2024",
+    "phonenumber": "222",
+    "email": "a2@ukr.net",
+    "procedures": [
+      {
+        "id": 2,
+        "proceduresDate": "сент. 28, 2024",
+        "procedures": "2Physiotherapy procedures"
+      },
+      {
+        "id": 3,
+        "proceduresDate": "сент. 28, 2024",
+        "procedures": "3Physiotherapy procedures"
+      }
+    ]
+  },
+  {
+    "id": 0,
+    "surname": "As3",
+    "name": "An3",
+    "patronymic": "Ap3",
+    "gender": "MALE",
+    "birthDate": "сент. 28, 2024",
+    "phonenumber": "333",
+    "email": "a3@ukr.net",
+    "procedures": [
+      {
+        "id": 1,
+        "proceduresDate": "сент. 28, 2024",
+        "procedures": "Physiotherapy procedures"
+      },
+      {
+        "id": 2,
+        "proceduresDate": "сент. 28, 2024",
+        "procedures": "2Physiotherapy procedures"
+      }
+    ]
+  }
+]
