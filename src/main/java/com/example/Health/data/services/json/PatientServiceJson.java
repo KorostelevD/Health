@@ -3,6 +3,10 @@ package com.example.Health.data.services.json;
 import com.example.Health.data.services.PatientService;
 import com.example.Health.models.Patient;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import lombok.NonNull;
 import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Service;
@@ -18,6 +22,23 @@ public class PatientServiceJson implements PatientService {
     private final String charset = "UTF-8";
     private final ObjectMapper objectMapper = new ObjectMapper();
     private static final String FILE_PATH = "C:/ITSTEP/JAVA/DZ/FinalProject/Health/PatientsServiceJson.json";
+
+    private final Gson gson = new GsonBuilder()
+            .setPrettyPrinting()
+            .setExclusionStrategies(new ExclusionStrategy() {
+                @Override
+                public boolean shouldSkipField(FieldAttributes fieldAttributes) {
+                    return fieldAttributes.getName().equalsIgnoreCase("patient");
+                }
+
+                @Override
+                public boolean shouldSkipClass(Class<?> aClass) {
+                    return false;
+                }
+            })
+            .create();
+
+
 
     @Override
     public Patient save(Patient patient) {

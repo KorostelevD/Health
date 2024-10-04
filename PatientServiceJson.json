@@ -4,7 +4,7 @@
   "name" : "An1",
   "patronymic" : "Ap1",
   "gender" : "MALE",
-  "birthDate" : 1727557200000,
+  "birthDate" : 1727643600000,
   "phonenumber" : "111",
   "email" : "a1@ukr.net",
   "labResult" : null,
@@ -12,12 +12,12 @@
   "payment" : null,
   "procedures" : [ {
     "id" : 1,
-    "proceduresDate" : 1727557200000,
+    "proceduresDate" : 1727643600000,
     "procedures" : "Physiotherapy procedures",
     "patient" : null
   }, {
     "id" : 2,
-    "proceduresDate" : 1727557200000,
+    "proceduresDate" : 1727643600000,
     "procedures" : "2Physiotherapy procedures",
     "patient" : null
   } ],
@@ -28,7 +28,7 @@
   "name" : "An2",
   "patronymic" : "Ap2",
   "gender" : "MALE",
-  "birthDate" : 1727557200000,
+  "birthDate" : 1727643600000,
   "phonenumber" : "222",
   "email" : "a2@ukr.net",
   "labResult" : null,
@@ -36,12 +36,12 @@
   "payment" : null,
   "procedures" : [ {
     "id" : 2,
-    "proceduresDate" : 1727557200000,
+    "proceduresDate" : 1727643600000,
     "procedures" : "2Physiotherapy procedures",
     "patient" : null
   }, {
     "id" : 3,
-    "proceduresDate" : 1727557200000,
+    "proceduresDate" : 1727643600000,
     "procedures" : "3Physiotherapy procedures",
     "patient" : null
   } ],
@@ -52,7 +52,7 @@
   "name" : "An3",
   "patronymic" : "Ap3",
   "gender" : "MALE",
-  "birthDate" : 1727557200000,
+  "birthDate" : 1727643600000,
   "phonenumber" : "333",
   "email" : "a3@ukr.net",
   "labResult" : null,
@@ -60,12 +60,12 @@
   "payment" : null,
   "procedures" : [ {
     "id" : 1,
-    "proceduresDate" : 1727557200000,
+    "proceduresDate" : 1727643600000,
     "procedures" : "Physiotherapy procedures",
     "patient" : null
   }, {
     "id" : 2,
-    "proceduresDate" : 1727557200000,
+    "proceduresDate" : 1727643600000,
     "procedures" : "2Physiotherapy procedures",
     "patient" : null
   } ],

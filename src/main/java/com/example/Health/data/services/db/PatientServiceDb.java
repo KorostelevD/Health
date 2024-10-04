@@ -37,6 +37,6 @@ public class PatientServiceDb implements PatientService {
 
     @Override
     public List<Patient> findAll() {
-        return List.of();
+        return patientRepository.findAll();
     }
 }

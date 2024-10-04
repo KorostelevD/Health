@@ -39,8 +39,8 @@ public class PatientServiceJsonTest {
     PatientService patientServiceJson;
 
 
-    //@Transactional
-    //@Commit
+    @Transactional
+    @Commit
     @Test
     @Order(1)
     public void savePatient(){
@@ -48,7 +48,6 @@ public class PatientServiceJsonTest {
         patientList = new ArrayList<>(savedList);
     }
 
-    //@Transactional
 
     @Test
     @Order(2)
@@ -58,7 +57,7 @@ public class PatientServiceJsonTest {
         System.err.println(procedureList);
     }
 
-    //@Transactional
+    @Transactional // не закриває транзакцію
     @Test
     @Order(3)
     public void updatePatients() {
@@ -94,9 +93,10 @@ public class PatientServiceJsonTest {
         //
         patientList = new ArrayList<>(savedList);
     }
+
+    @Transactional
     @Test
     @Order(4)
-    //@Transactional
     public void exportJson() {
         System.out.println("Starting export to JSON...");
 
