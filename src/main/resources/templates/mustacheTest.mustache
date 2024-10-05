@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mustache Test</title>
+</head>
+<body>
+    <div>
+        <p>Variable</p>
+        <p>Variable value:{{variable}}</p>
+    </div>
+    <div>
+        <p>HTML</p>
+        <div>{{html_content}}</div> 
+         <div>{{{html_content}}}</div> 
+        </div>
+        <div>
+            <p>Condition Section (If)</p>
+            {{# isAdmin }}
+                <p>Hello Admin!</p>
+            {{/ isAdmin }}
+        </div>
+
+        <div>
+            <p>Inverted Section(if(!Condition))</p>
+            {{^ isAdmin }}
+                <p>Hello User!</p>
+            {{/ isAdmin }}
+        </div>
+    
+        <div>
+            <p>Cycle</p>
+            {{# list }}
+                <li>{{ . }}</li>
+            {{/ list }}
+        </div>
+        <div>
+            <p>Cycle Object</p>
+             <table>
+            {{# list }}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{surname}}</td>
+                    <td>{{name}}</td>
+                    <td>{{patronymic}}</td>
+                    <td>{{gender}}</td>
+                    <td>{{birthDate}}</td>
+                    <td>{{phonenumber}}</td>
+                    <td>{{email}}</td>
+                </tr>
+            {{/ list }}
+            </table>
+        </div>
+        
+
+</body>
+</html>
