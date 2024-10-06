@@ -12,7 +12,7 @@ import java.sql.Date;
 import java.util.List;
 
 @Controller
-public class PatientsController {
+public class PatientsMustacheController {
 
     @Autowired
     @PatientServiceDbQualifier
@@ -29,13 +29,12 @@ public class PatientsController {
     @GetMapping("mustache/patients")
     public String loadPatients(Model model) {
         List<Patient> list = patientService.findAll();
-        System.out.println("Пацієнти: " + list);  // Перевірте, чи список не порожній
         model.addAttribute("patients", list);
         return "mustache/patients";
     }
 
 
-    //@PostMapping("patientForm")
+    //@PostMapping("patientFormMustache")
     public String patientForm1(
 
             @RequestParam("surname") String surname,
@@ -51,7 +50,7 @@ public class PatientsController {
         return "redirect:patients";
     }
 
-    @PostMapping("mustache/patientForm")
+    @PostMapping("patientFormMustache")
     public String patientForm2(@ModelAttribute("patient") Patient patient){
         System.err.println(patient);
         patientService.save(patient);

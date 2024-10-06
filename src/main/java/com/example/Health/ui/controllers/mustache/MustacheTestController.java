@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 @Controller
 public class MustacheTestController {
-    @GetMapping("mustache/mustachetest")
+    @GetMapping("mustachetest")
     public String load(Model model){
         //variable
         model.addAttribute("variable","Hello variable");

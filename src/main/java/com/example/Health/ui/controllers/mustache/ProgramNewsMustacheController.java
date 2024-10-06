@@ -13,17 +13,17 @@ import org.springframework.ui.Model;
 import java.util.List;
 
 @Controller
-public class ProgramNewsController {
+public class ProgramNewsMustacheController {
 
     private final ProgramNewsService programNewsService;
 
     @Autowired
-    public ProgramNewsController(ProgramNewsService programNewsService) {
+    public ProgramNewsMustacheController(ProgramNewsService programNewsService) {
         this.programNewsService = programNewsService;
     }
 
     // Метод для завантаження сторінки з новинами
-    @GetMapping("mustache/programnews")
+    @GetMapping("programnews")
     public String getProgramNewsPage(Model model) {
         List<ProgramNews> newsList = programNewsService.getAllNews();
         model.addAttribute("newsList", newsList);
@@ -34,6 +34,6 @@ public class ProgramNewsController {
     @PostMapping("/programNewsForm")
     public String addProgramNews(@ModelAttribute ProgramNews news) {
         programNewsService.addNews(news);
-        return "redirect:mustache/programnews";
+        return "redirect:programnews";
     }
 }
