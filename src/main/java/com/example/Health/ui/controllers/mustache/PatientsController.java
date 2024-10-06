@@ -1,4 +1,4 @@
-package com.example.Health.ui.controllers;
+package com.example.Health.ui.controllers.mustache;
 
 import com.example.Health.data.services.PatientService;
 import com.example.Health.data.services.qualifiers.PatientServiceDbQualifier;
@@ -26,12 +26,12 @@ public class PatientsController {
         return "redirect:patients";
     }*/
 
-    @GetMapping("patients")
+    @GetMapping("mustache/patients")
     public String loadPatients(Model model) {
         List<Patient> list = patientService.findAll();
         System.out.println("Пацієнти: " + list);  // Перевірте, чи список не порожній
         model.addAttribute("patients", list);
-        return "patients";
+        return "mustache/patients";
     }
 
 
@@ -48,13 +48,13 @@ public class PatientsController {
     ){
         Patient patient = new Patient(0, surname, name, patronymic,gender, birthDate,phonenumber, email);
         System.err.println(patient);
-        return "redirect:";
+        return "redirect:patients";
     }
 
-    @PostMapping("patientForm")
+    @PostMapping("mustache/patientForm")
     public String patientForm2(@ModelAttribute("patient") Patient patient){
         System.err.println(patient);
         patientService.save(patient);
-        return "redirect:";
+        return "redirect:patients";
     }
 }

@@ -1,4 +1,4 @@
-package com.example.Health.ui.controllers;
+package com.example.Health.ui.controllers.mustache;
 
 
 import com.example.Health.data.services.ProgramNewsService;
@@ -23,17 +23,17 @@ public class ProgramNewsController {
     }
 
     // Метод для завантаження сторінки з новинами
-    @GetMapping("/programnews")
+    @GetMapping("mustache/programnews")
     public String getProgramNewsPage(Model model) {
         List<ProgramNews> newsList = programNewsService.getAllNews();
         model.addAttribute("newsList", newsList);
-        return "programNews";
+        return "mustache/programNews";
     }
 
     // Метод для додавання нової новини
     @PostMapping("/programNewsForm")
     public String addProgramNews(@ModelAttribute ProgramNews news) {
         programNewsService.addNews(news);
-        return "redirect:/programnews";
+        return "redirect:mustache/programnews";
     }
 }

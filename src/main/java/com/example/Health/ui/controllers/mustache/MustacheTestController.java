@@ -1,4 +1,4 @@
-package com.example.Health.ui.controllers;
+package com.example.Health.ui.controllers.mustache;
 
 import com.example.Health.models.Patient;
 import org.springframework.stereotype.Controller;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 @Controller
 public class MustacheTestController {
-    @GetMapping("mustachetest")
+    @GetMapping("mustache/mustachetest")
     public String load(Model model){
         //variable
         model.addAttribute("variable","Hello variable");
@@ -41,6 +41,6 @@ public class MustacheTestController {
 
         model.addAttribute("list",list.get(0));
         //
-        return "mustacheTest";
+        return "mustache/mustacheTest";
     }
 }

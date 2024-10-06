@@ -1,4 +1,4 @@
-package com.example.Health.ui.controllers;
+package com.example.Health.ui.controllers.mustache;
 
 
 import org.springframework.stereotype.Controller;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
     @GetMapping("/")
     public String load(){
-        return "redirect:programnews";
+        return "redirect:mustache/patients";
     }
 
 }
