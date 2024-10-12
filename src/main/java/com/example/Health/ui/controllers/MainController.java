@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
     @GetMapping("/")
     public String load(){
+        //throw new RuntimeException("Test");
+        //System.out.println(1/0);
         return "redirect:patients";
     }
 

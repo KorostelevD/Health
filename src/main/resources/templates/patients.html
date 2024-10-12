@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <th:block th:insert= "~{fragments/settingsPage ::settingsFragment }" />
     <title>Patients</title>
 </head>
+
 <body>
+    <th:block th:insert= "~{fragments/headerPage ::headerFragment }" />
     <div>
         <form th:action="@{/addPatientForm}" method="post" >
             <input type="text" name="surname" placeholder="Surname" value="a">

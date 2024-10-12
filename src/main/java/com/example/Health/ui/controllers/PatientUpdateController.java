@@ -22,21 +22,17 @@ public class PatientUpdateController {
 
     @GetMapping("patientupdate")
     public String load(Model model, @RequestParam ("patientId") Integer patientId ){//що приходить и уходить
-        Optional < Patient> optionalPatient = patientService.findById(patientId);
+       Optional < Patient> optionalPatient = patientService.findById(patientId);
         if (optionalPatient.isPresent()){ //якщо клієнт приходить
             model.addAttribute("patient", optionalPatient.get());
             return "patientUpdate";
         }
         return "patientUpdate"; //заклушка
-
     }
-
     @PostMapping("patientUpdateForm")
     public String patientUpdateForm (@ModelAttribute Patient patient){
         patientService.save(patient);
         return "redirect:patients";
     }
-
-
 
 }
