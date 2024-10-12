@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Update</title>
+</head>
+<body>
+    <div>
+        <form th:action="@{patientUpdateForm}" method="post" th:object="${patient}">
+            <input type="hidden" name="id" th:value="${patient.id}">
+            <input type="text" name="surname" th:value="${patient.surname}" placeholder="Surname">
+            <input type="text" name="name" th:value="${patient.name}" placeholder="Name">
+            <input type="text" name="patronymic" th:value="${patient.patronymic}" placeholder="Patronymic">
+            
+            <!-- <input type="text" name="gender" th:value="${patient.surname}" placeholder="Surname"> -->
+            <!--/* Коментар Thymeleaf */-->
+            
+            <!--/* 1 */-->
+            <!--/* <select name="gender" id="gender">
+                < Якщо Gender в окремому файлі */-->
+                <!-- <option th:each = "gender:${Gender.value()}"></option> -->
+                 <!-- Якщо Patient.Gender всередені іншого класу (для вкладених класів)*/-->
+                 <!-- <option th:each = "gender : ${T(com.example.Health.models.Patient.Gender).values()}" 
+                 th:value="${gender.name()}" th:utext="${gender.name()}"
+                 th:selected= "${gender == patient.gender }"></option>
+            </select> -->
+            
+            <!--/* 2 */-->
+
+            <select name="gender" id="gender">
+                <th:block th:each = "gender : ${T(com.example.Health.models.Patient.Gender).values()}">
+                <option  
+                 th:value="${gender.name()}" 
+                 th:utext="${gender.name()}"
+                 th:selected= "${gender == patient.gender }"></option>
+                </th:block>
+            </select>
+            
+            
+            <input type="date" name="birthDate" th:value="${patient.birthDate}">
+            <input type="text" name="phonenumber" th:value="${patient.phonenumber}" placeholder="Phonenumber">
+            <input type="email" name="email" th:value="${patient.email}" placeholder="Email">
+            
+            <input type="submit" value="Save">
+
+        </form>
+
+    </div>
+</body>
+</html>

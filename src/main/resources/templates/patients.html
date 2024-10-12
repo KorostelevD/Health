@@ -6,18 +6,18 @@
 </head>
 <body>
     <div>
-        <form th:action="@{/addPatientForm}" method="post">
-            <input type="text" name="surname" placeholder="Surname">
-            <input type="text" name="name" placeholder="Name">
-            <input type="text" name="patronymic" placeholder="Patronymic">
+        <form th:action="@{/addPatientForm}" method="post" >
+            <input type="text" name="surname" placeholder="Surname" value="a">
+            <input type="text" name="name" placeholder="Name" value="a">
+            <input type="text" name="patronymic" placeholder="Patronymic" value="a">
             <select name="gender">
                 <option value="NONE">NONE</option>
                 <option value="MALE">MALE</option>
                 <option value="FEMALE">FEMALE</option>
             </select>
-            <input type="date" name="birthDate">
-            <input type="text" name="phonenumber" placeholder="Phonenumber">
-            <input type="email" name="email" placeholder="email">
+            <input type="date" name="birthDate" value="2004-09-12">
+            <input type="text" name="phonenumber" placeholder="Phonenumber" value="555" >
+            <input type="email" name="email" placeholder="email" value="1@ukr.net">
             <input type="submit" value="Save">
         </form>
     </div>
@@ -42,11 +42,12 @@
                 <td th:utext="${patient.birthDate}"></td>
                 <td th:utext="${patient.phonenumber}"></td>
                 <td th:utext="${patient.email}"></td>
-                <!-- <td>
-                    <form th:action= "${patientUpdateRedirect}" method="post">
-                        <input type="hidden" name="patientId" th:value="${patient.id}">
+                <td>
+                    <form th:action= "@{/patientUpdateRedirect}" method="post">
+                        <input type="hidden" name="patientId" th:value="${patient.id}"/>
+                        <input type="submit" value="&#8942;"/>
                     </form>
-                </td> -->
+                </td>
             </tr>
         </table>
 

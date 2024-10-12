@@ -6,39 +6,37 @@ import com.example.Health.models.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
+import java.util.Optional;
 
 @Controller
-public class PatientsController {
+public class PatientUpdateController {
+
     @Autowired
     @PatientServiceDbQualifier
     PatientService patientService;
 
-    @GetMapping("patients")
-    public String load(Model model){
-        List<Patient> list = patientService.findAll();
-        model.addAttribute("patientList",list);
-        return "patients";
+    @GetMapping("patientupdate")
+    public String load(Model model, @RequestParam ("patientId") Integer patientId ){//що приходить и уходить
+        Optional < Patient> optionalPatient = patientService.findById(patientId);
+        if (optionalPatient.isPresent()){ //якщо клієнт приходить
+            model.addAttribute("patient", optionalPatient.get());
+            return "patientUpdate";
+        }
+        return "patientUpdate"; //заклушка
+
     }
 
-    @PostMapping("addPatientForm")
-    public String addPatientForm (@ModelAttribute Patient patient){
+    @PostMapping("patientUpdateForm")
+    public String patientUpdateForm (@ModelAttribute Patient patient){
         patientService.save(patient);
         return "redirect:patients";
     }
 
-    @PostMapping ("patientUpdateRedirect")
-    public ModelAndView patientUpdateRedirect(@RequestParam("patientId") Integer patientId){
-        return new ModelAndView(
-          "redirect:patientupdate",
-          new ModelMap("patientId", patientId)
-        );
-    }
+
+
 }
