@@ -4,10 +4,10 @@
     <th:block th:insert= "~{fragments/settingsPage ::settingsFragment }" />
     <title>Patient Update</title>
 </head>
-<body>
+<body th:object="${patient}">
     <th:block th:insert = "~{fragments/headerPage ::headerFragment }" />
     <div>
-        <form th:action="@{patientUpdateForm}" method="post" th:object="${patient}">
+        <form th:action="@{patientUpdateForm}" method="post">
             <input type="hidden" name="id" th:value="${patient.id}">
             <input type="text" name="surname" th:value="${patient.surname}" placeholder="Surname">
             <input type="text" name="name" th:value="${patient.name}" placeholder="Name">
@@ -47,5 +47,15 @@
         </form>
 
     </div>
+    <div>
+        <form th:action="@{/addProcedureForm}" th:method="@{post}">
+            <input type="hidden" name="patientId" th:value="${patient.id}">
+            <input type="text" name="procedures">
+            <input type="submit" value="Save">
+        </form>
+
+    </div>
+    <script type="text/javascript" src="js/patientUpdate.js"></script>
+
 </body>
 </html>

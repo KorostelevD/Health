@@ -3,6 +3,7 @@ package com.example.Health.ui.controllers;
 import com.example.Health.data.services.PatientService;
 import com.example.Health.data.services.qualifiers.PatientServiceDbQualifier;
 import com.example.Health.models.Patient;
+import com.example.Health.models.Procedure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +21,7 @@ public class PatientUpdateController {
     @PatientServiceDbQualifier
     PatientService patientService;
 
-    @GetMapping("patientupdate")
+    @GetMapping("/patientupdate")
     public String load(Model model, @RequestParam ("patientId") Integer patientId ){//що приходить и уходить
        Optional < Patient> optionalPatient = patientService.findById(patientId);
         if (optionalPatient.isPresent()){ //якщо клієнт приходить
@@ -33,6 +34,12 @@ public class PatientUpdateController {
     public String patientUpdateForm (@ModelAttribute Patient patient){
         patientService.save(patient);
         return "redirect:patients";
+    }
+
+    @PostMapping("/addProcedureForm")
+    public String addProcedureForm(@RequestParam ("patientId") Integer patientId, @ModelAttribute Procedure procedure){
+        System.err.println(procedure);
+        return "redirect:/patientUpdate";
     }
 
 }
