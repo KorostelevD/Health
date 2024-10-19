@@ -54,22 +54,22 @@
             </form>
         </div>
         <div>
-            <table>
+            <table id="form-container">
                 <tr>
                     <th>ID</th>
                     <th>Procedures</th>
                     <th></th>
                 </tr>
                 <tr th:each= "procedureObj:${patient.procedures}">
-                    <form action="" method="post">
+                    <form action="procedureUpdateForm">
+                        <input type="hidden" name="id" th:value="${procedureObj.id}">
                         <td><input type="text" name="id" th:value="${procedureObj.id}" disabled></td>
-                        <td><input type="text" name="proctdure" id="" th:value="${procedureObj.procedures}"> </td>
-                        <td><button type = "submit" onclick="updateProcedure()" id = "updateProcedure">Save</button> </td>
+                        <td><input type="text" name="procedures" id="" th:value="${procedureObj.procedures}"> </td>
+                        <td><button type = "submit" id = "updateProcedure">Save</button> </td>
                     </form>
                 </tr>
             </table>
         </div>
-
     </th:block>
     <script type="text/javascript" src="js/patientUpdate.js"></script>
 </body>
