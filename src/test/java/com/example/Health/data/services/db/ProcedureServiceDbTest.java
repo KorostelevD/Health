@@ -20,8 +20,8 @@ public class ProcedureServiceDbTest {
     private static Patient patient1 = new Patient(0, "a", "a", "a",
             Patient.Gender.MALE, Date.valueOf(LocalDate.now()), "00000000", "m@ukr.net");
 
-    private static Procedure procedure1 = new Procedure(0, Date.valueOf(LocalDate.now()),"Physiotherapy procedures",patient1);
-    private static Procedure procedure2 = new Procedure(0, Date.valueOf(LocalDate.now()),"Therapeutic exercise",patient1 );
+    private static Procedure procedure1 = new Procedure(0,"Physiotherapy procedures",patient1);
+    private static Procedure procedure2 = new Procedure(0,"Therapeutic exercise",patient1 );
 
     @Autowired
     private ProcedureService procedureService;

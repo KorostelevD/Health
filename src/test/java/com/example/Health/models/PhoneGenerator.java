@@ -12,11 +12,11 @@ public class PhoneGenerator {
 @Bean
     public ArrayList<Procedure> procedureList(){
     ArrayList<Procedure> list = new ArrayList<>();
-    list.add(new Procedure(0, Date.valueOf(LocalDate.now()),"Physiotherapy procedures"));
-    list.add(new Procedure(0, Date.valueOf(LocalDate.now()),"2Physiotherapy procedures"));
-    list.add(new Procedure(0, Date.valueOf(LocalDate.now()),"3Physiotherapy procedures"));
-    list.add(new Procedure(0, Date.valueOf(LocalDate.now()),"4Physiotherapy procedures"));
-    list.add(new Procedure(0, Date.valueOf(LocalDate.now()),"5Physiotherapy procedures"));
+    list.add(new Procedure(0,"Physiotherapy procedures"));
+    list.add(new Procedure(0,"2Physiotherapy procedures"));
+    list.add(new Procedure(0,"3Physiotherapy procedures"));
+    list.add(new Procedure(0,"4Physiotherapy procedures"));
+    list.add(new Procedure(0 ,"5Physiotherapy procedures"));
     return list;
     }
 }
